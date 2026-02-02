@@ -90,7 +90,7 @@ The final output includes a plot comparing actual values with optimized forecast
 
 ---
 
-## Delivery 2: Comparative Analysis Report
+## Comparative Analysis Report
 
 This delivery focuses on comparing the baseline Prophet model and the optimized Prophet model using quantitative evaluation metrics.
 
@@ -108,7 +108,7 @@ The optimized Prophet model consistently outperforms the baseline model across a
 
 ---
 
-## Delivery 3: Optimal Hyperparameters and Rationale
+## Optimal Hyperparameters and Rationale
 
 Bayesian Optimization identified the following hyperparameters as optimal for this dataset:
 
