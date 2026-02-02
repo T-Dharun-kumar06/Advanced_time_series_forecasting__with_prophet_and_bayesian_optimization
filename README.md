@@ -1,177 +1,97 @@
-Advanced_time_series_forecasting__with_prophet_and_bayesian_optimization
-📌 Project Overview
+# Advanced_time_series_forecasting__with_prophet_and_bayesian_optimization
 
-This project demonstrates an advanced time series forecasting pipeline using Facebook Prophet combined with Bayesian Optimization (Optuna) to achieve improved forecasting accuracy beyond default model settings.
+## Project Overview
 
-The main objective is to move past baseline forecasting by systematically tuning Prophet’s hyperparameters and evaluating performance using robust time series metrics such as RMSE, MAE, and WAPE.
+This project implements an advanced time series forecasting pipeline using Facebook Prophet combined with Bayesian Optimization (Optuna) to improve forecasting accuracy beyond default model configurations.
 
-The project uses a synthetically generated complex dataset that includes:
+A complex synthetic time series dataset is generated to simulate real-world scenarios such as sales forecasting, stock price prediction, or electricity demand estimation. The dataset includes multiple seasonal patterns, a long-term trend, random noise, and injected anomalies. The performance of a baseline Prophet model is compared against an optimized model using standard evaluation metrics.
 
-Multiple seasonal patterns
+---
 
-Long-term trend
+## Objectives
 
-Random noise
+- Generate a complex multi-seasonal time series dataset
+- Build a baseline Prophet forecasting model
+- Apply Bayesian Optimization to tune Prophet hyperparameters
+- Train a final optimized Prophet model
+- Compare baseline and optimized models using evaluation metrics
+- Visualize forecasting results
 
-Injected anomalies (spikes and dips)
+---
 
-This setup closely simulates real-world business time series data such as electricity demand, stock prices, or sales forecasting.
+## Technologies Used
 
-🎯 Key Objectives
+- Python  
+- Facebook Prophet  
+- Optuna (Bayesian Optimization)  
+- NumPy  
+- Pandas  
+- Scikit-learn  
+- Matplotlib  
 
-Generate a complex multi-seasonal time series dataset
+---
 
-Build a baseline Prophet model using default parameters
+## Project Workflow
 
-Apply Bayesian Optimization to tune Prophet hyperparameters
+### 1. Synthetic Data Generation
+A daily time series dataset is generated with:
+- Linear trend  
+- Yearly seasonality  
+- Weekly seasonality  
+- Gaussian noise  
+- Artificial anomalies (spikes and dips)  
 
-Train a final optimized Prophet model
+---
 
-Compare baseline vs optimized models using standard evaluation metrics
-
-Visualize forecast results
-
-🧠 Technologies Used
-
-Python
-
-Facebook Prophet
-
-Optuna (Bayesian Optimization)
-
-NumPy & Pandas
-
-Scikit-learn
-
-Matplotlib
-
-📂 Project Workflow
-1️⃣ Synthetic Data Generation
-
-A daily time series dataset is programmatically created with:
-
-Linear trend
-
-Yearly seasonality
-
-Weekly seasonality
-
-Gaussian noise
-
-Five artificial anomalies (spikes/dips)
-
-This ensures the model is tested on a challenging and realistic dataset.
-
-2️⃣ Data Splitting
-
+### 2. Data Splitting
 The dataset is divided into:
+- Training set (70%)
+- Validation set (15%)
+- Test set (15%)
 
-Training set (70%)
+---
 
-Validation set (15%)
+### 3. Baseline Model
+A baseline Prophet model is trained using default parameters. Performance metrics are calculated on the validation dataset.
 
-Test set (15%)
+---
 
-This allows fair model evaluation and prevents data leakage.
+### 4. Bayesian Optimization
+Bayesian Optimization is performed using Optuna to minimize RMSE by tuning the following hyperparameters:
+- seasonality_prior_scale  
+- changepoint_prior_scale  
+- holidays_prior_scale  
 
-3️⃣ Baseline Model
+This approach efficiently searches the hyperparameter space compared to traditional tuning methods.
 
-A baseline Prophet model is trained using default configuration:
+---
 
-Yearly seasonality enabled
+### 5. Final Optimized Model
+The optimized model is trained using the best hyperparameters identified through Bayesian Optimization and evaluated on the test dataset.
 
-Weekly seasonality enabled
+---
 
-Daily seasonality disabled
+### 6. Evaluation Metrics
 
-Baseline performance metrics are computed on the validation set.
+The following metrics are used for model evaluation:
+- RMSE (Root Mean Squared Error)  
+- MAE (Mean Absolute Error)  
+- WAPE (Weighted Absolute Percentage Error)  
 
-4️⃣ Bayesian Optimization with Optuna
+---
 
-Bayesian Optimization is applied to efficiently search the hyperparameter space and minimize RMSE.
+### 7. Results Comparison
+A comparative analysis highlights the performance improvements achieved by the optimized model over the baseline Prophet model.
 
-Optimized parameters include:
+---
 
-seasonality_prior_scale
+### 8. Visualization
+The final output includes a plot comparing actual values with optimized forecast values.
 
-changepoint_prior_scale
+---
 
-holidays_prior_scale
+## How to Run
 
-Optuna intelligently balances exploration and exploitation, making it more efficient than grid or random search.
-
-5️⃣ Final Optimized Model
-
-Using the best hyperparameters found by Optuna:
-
-The model is retrained on training + validation data
-
-Forecasts are generated for the test set
-
-Final performance metrics are computed
-
-6️⃣ Evaluation Metrics
-
-The following metrics are used for comparison:
-
-RMSE (Root Mean Squared Error)
-
-MAE (Mean Absolute Error)
-
-WAPE (Weighted Absolute Percentage Error)
-
-These metrics provide a comprehensive view of forecasting accuracy and robustness.
-
-7️⃣ Results Comparison
-
-A side-by-side comparison clearly shows the performance gains achieved through Bayesian Optimization over the baseline Prophet model.
-
-8️⃣ Visualization
-
-The final section visualizes:
-
-Actual test values
-
-Optimized Prophet forecasts
-
-This helps in visually validating model performance.
-
-📊 Sample Output
-
-Baseline vs Optimized performance table
-
-Best hyperparameters identified by Optuna
-
-Forecast plot comparing predicted and actual values
-
-🚀 How to Run the Project
-Install Dependencies
+### Install Dependencies
+```bash
 pip install prophet optuna scikit-learn pandas numpy matplotlib
-
-Run the Script
-python main.py
-
-✅ Key Takeaways
-
-Default forecasting models can often be significantly improved with proper tuning
-
-Bayesian Optimization provides an efficient and scalable approach for hyperparameter search
-
-Prophet is highly effective for multi-seasonal time series with anomalies
-
-A structured evaluation strategy ensures reliable and reproducible results
-
-📌 Future Enhancements
-
-Add real-world datasets (electricity load, sales, stock prices)
-
-Introduce holiday effects
-
-Compare Prophet with ARIMA, SARIMA, or LSTM models
-
-Use cross-validation instead of single validation split
-
-👤 Author
-
-Dharun Kumar T
-Advanced Time Series Forecasting Project
